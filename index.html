@@ -37,7 +37,6 @@
         .logo-header { max-width: 300px; filter: drop-shadow(0 0 20px rgba(116, 172, 223, 0.6)); border-radius: 15px; margin-bottom: 20px; }
         h1 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: #fff; text-shadow: 0 0 15px var(--arg-blue); margin-bottom: 10px; }
 
-        /* Botonera Blanca/Dorada */
         .btn-neon {
             display: inline-block;
             padding: 12px 25px;
@@ -59,9 +58,9 @@
             border-color: #fff;
         }
 
-        /* Banner Multiplay */
+        /* Banner Multiplay Mejorado */
         .multiplay-banner {
-            background: rgba(0, 53, 95, 0.4);
+            background: rgba(0, 53, 95, 0.5);
             backdrop-filter: blur(10px);
             border: 2px solid var(--arg-blue);
             border-radius: 15px;
@@ -71,21 +70,31 @@
             box-shadow: 0 0 30px rgba(116, 172, 223, 0.3);
         }
         .multiplay-logo { max-width: 250px; filter: drop-shadow(0 0 10px var(--arg-blue)); margin-bottom: 15px; }
+        .subtitle { font-size: 1.2rem; color: var(--gold); font-weight: bold; margin-bottom: 20px; }
+        
+        .multiplay-features {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 20px 0;
+        }
+        .feature-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(116, 172, 223, 0.3);
+            padding: 15px; border-radius: 10px; flex: 1 1 250px; text-align: left;
+        }
+        .feature-box h4 { color: var(--arg-blue); margin-bottom: 5px; font-family: 'Orbitron'; }
+        .feature-box p { font-size: 0.95rem; color: #ccc; }
 
-        /* Grid de Servicios */
+        .multiplay-plans { font-weight: bold; margin: 15px 0; font-size: 1.1rem; }
+        .multiplay-plans span { color: var(--gold); }
+
+        /* Grid */
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px; margin-bottom: 50px;
         }
         .service-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(116, 172, 223, 0.2);
-            border-radius: 10px;
-            padding: 25px;
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+            border: 1px solid rgba(116, 172, 223, 0.2); border-radius: 10px;
+            padding: 25px; transition: all 0.3s ease;
         }
         .service-card:hover { border-color: var(--gold); box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
         .service-card h3 { font-family: 'Orbitron', sans-serif; color: #fff; margin-bottom: 20px; text-shadow: 0 0 5px var(--arg-blue); text-align: center; }
@@ -96,7 +105,7 @@
 
         footer { text-align: center; padding: 30px; border-top: 1px solid var(--arg-dark-blue); margin-top: 50px; }
         .whatsapp-number { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: var(--gold); font-weight: bold; margin: 15px 0; display: block; }
-
+        .warning-text { font-size: 0.85rem; color: #ff4d4d; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -105,12 +114,11 @@
 
     <div class="container">
         <header>
-            <img src="image_0.jpg" alt="Digitalgamer_ok Logo" class="logo-header">
+            <img src="image_0.jpg" alt="Logo" class="logo-header">
             <h1>ACCESO DIGITAL PREMIUM 🇦🇷</h1>
             <a href="https://chat.whatsapp.com/EUL8RzPX9saDJ1cU2vvjJm" target="_blank" class="btn-neon">Unite al Grupo VIP</a>
         </header>
 
-        <!-- BOTONERA FUNCIONAL -->
         <div style="text-align: center; margin-bottom: 40px;">
             <button class="btn-neon active" onclick="filterBox('all', this)">Todo</button>
             <button class="btn-neon" onclick="filterBox('streaming', this)">Streaming</button>
@@ -120,78 +128,40 @@
             <button class="btn-neon" onclick="filterBox('extras', this)">Redes & Extras</button>
         </div>
 
-        <!-- Banner Multiplay -->
-         <div class="multiplay-banner">
-
-            <img src="image_1.png" alt="Multiplay TV Logo" class="multiplay-logo">
-
+        <!-- Banner Multiplay CON ID CORRECTO -->
+        <div class="multiplay-banner" id="banner-tv">
+            <img src="image_1.png" alt="Multiplay TV" class="multiplay-logo">
             <h2>EL SERVICIO DEFINITIVO DE ENTRETENIMIENTO 🟦</h2>
-
-            <p class="subtitle">Disfruta en 3 PANTALLAS SIMULTÁNEAS en todos tus dispositivos</p>
-
-
+            <p class="subtitle">Disfruta en 3 PANTALLAS SIMULTÁNEAS</p>
 
             <div class="multiplay-features">
-
                 <div class="feature-box">
-
-                    <h4>⚽ Deportes y Fútbol VIP</h4>
-
-                    <p>Pack Fútbol completo (TNT/Fox/ESPN), Ligas exclusivas (MLS con Messi, Liga Árabe con CR7, Tigo).</p>
-
+                    <h4>⚽ Fútbol VIP</h4>
+                    <p>Pack Fútbol (TNT/ESPN), Ligas exclusivas (MLS, Árabe, Tigo).</p>
                 </div>
-
                 <div class="feature-box">
-
-                    <h4>🎬 Series y Cine 4K</h4>
-
-                    <p>Catálogo infinito: Netflix, Disney+, Max y más en calidad Ultra HD y FHD.</p>
-
+                    <h4>🎬 Cine 4K</h4>
+                    <p>Netflix, Disney+, Max en Ultra HD y FHD.</p>
                 </div>
-
                 <div class="feature-box">
-
-                    <h4>🌐 TV Mundial & Premium</h4>
-
-                    <p>Canales en vivo de todo el mundo + Bonus Exclusivo de contenido para Adultos (XXX).</p>
-
+                    <h4>🌐 TV Mundial</h4>
+                    <p>Canales en vivo + Contenido Adultos (XXX).</p>
                 </div>
-
                 <div class="feature-box">
-
-                    <h4>💻 100% Compatible</h4>
-
-                    <p>Smart TV, TV Box, Fire Stick, Roku, Android, iPhone, PC y Chromecast. (Requiere mín. 20 Mbps).</p>
-
+                    <h4>💻 Compatible</h4>
+                    <p>Smart TV, TV Box, Android, iPhone, PC y Chromecast.</p>
                 </div>
-
             </div>
-
-
 
             <div class="multiplay-plans">
-
-                🔥 PLANES DISPONIBLES: 
-
-                <span>MENSUAL</span> | <span>TRIMESTRAL</span> | <span>SEMESTRAL</span> | <span>ANUAL</span>
-
+                🔥 PLANES: <span>MENSUAL</span> | <span>TRIMESTRAL</span> | <span>SEMESTRAL</span> | <span>ANUAL</span>
             </div>
-
-            <br>
-
-
-
-            <a href="https://api.whatsapp.com/send?phone=5491128881378&text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20pedir%20mi%20prueba%20gratis%20de%20MultiplayTV.%20%F0%9F%93%BA" target="_blank" class="btn-neon">🎁 PEDIR MI PRUEBA GRATIS DE 3 HORAS</a>
-
             
-
-            <p class="warning-text">⚠️ Importante: La prueba sin costo está sujeta a disponibilidad y no se otorga durante partidos de fútbol importantes.</p>
-
+            <a href="https://api.whatsapp.com/send?phone=5491128881378&text=Hola!%20Vengo%20de%20la%20página%20web%20y%20quiero%20pedir%20mi%20prueba%20gratis%20de%20MultiplayTV" target="_blank" class="btn-neon">🎁 PRUEBA GRATIS 3 HORAS</a>
+            <p class="warning-text">⚠️ Prueba sujeta a disponibilidad (No disponible en partidos importantes).</p>
         </div>
 
-        
         <div class="services-grid">
-            <!-- STREAMING -->
             <div class="service-card" data-type="streaming">
                 <h3>🎬 CINE & STREAMING</h3>
                 <ul class="service-list">
@@ -200,13 +170,11 @@
                     <li><img src="primevideo.png" class="service-icon">Prime Video</li>
                     <li><img src="max.png" class="service-icon">Max Standard</li>
                     <li><img src="paramountplus.png" class="service-icon">Paramount Plus</li>
-                    <li><img src="crunchyroll.png" class="service-icon">Crunchyroll Fan</li>
                     <li><img src="vixplus.png" class="service-icon">Vix Plus</li>
                     <li><img src="appletv.png" class="service-icon">Apple TV+</li>
                 </ul>
             </div>
 
-            <!-- MUSICA -->
             <div class="service-card" data-type="musica">
                 <h3>🎧 MÚSICA</h3>
                 <ul class="service-list">
@@ -218,7 +186,6 @@
                 </ul>
             </div>
 
-            <!-- PRO -->
             <div class="service-card" data-type="pro">
                 <h3>💻 IA & PRODUCTIVIDAD</h3>
                 <ul class="service-list">
@@ -230,7 +197,6 @@
                 </ul>
             </div>
 
-            <!-- GAMING -->
             <div class="service-card" data-type="gaming">
                 <h3>🎮 GAMING</h3>
                 <ul class="service-list">
@@ -241,7 +207,6 @@
                 </ul>
             </div>
 
-            <!-- REDES Y EXTRAS -->
             <div class="service-card" data-type="extras">
                 <h3>🚀 REDES & EXTRAS</h3>
                 <ul class="service-list">
@@ -257,7 +222,7 @@
         <footer>
             <img src="image_0.jpg" alt="Logo" style="max-width: 100px; border-radius: 10px;">
             <span class="whatsapp-number">Contacto: 1128881378</span>
-            <p style="color: #666;">© 2026 Panther STORE. Orgullo Argentino.</p>
+            <p>© 2026 Panther STORE. Orgullo Argentino.</p>
         </footer>
     </div>
 
@@ -270,8 +235,12 @@
             const cards = document.querySelectorAll('.service-card');
             const banner = document.getElementById('banner-tv');
             
-            // Ocultar/Mostrar banner solo en "Todo" o "Streaming"
-            banner.style.display = (category === 'all' || category === 'streaming') ? 'block' : 'none';
+            // Lógica para mostrar el banner solo en 'all' o 'streaming'
+            if (category === 'all' || category === 'streaming') {
+                banner.style.display = 'block';
+            } else {
+                banner.style.display = 'none';
+            }
 
             cards.forEach(card => {
                 if (category === 'all' || card.getAttribute('data-type') === category) {
@@ -282,7 +251,7 @@
             });
         }
 
-        // Lógica Lluvia Blanca
+        // Lluvia Blanca
         const canvas = document.getElementById('weather-canvas');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
@@ -306,6 +275,7 @@
             requestAnimationFrame(draw);
         }
         draw();
+        window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });
     </script>
 </body>
 </html>
