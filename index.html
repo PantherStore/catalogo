@@ -58,7 +58,7 @@
             border-color: #fff;
         }
 
-        /* Banner Multiplay Mejorado */
+        
         .multiplay-banner {
             background: rgba(0, 53, 95, 0.5);
             backdrop-filter: blur(10px);
@@ -86,7 +86,7 @@
         .multiplay-plans { font-weight: bold; margin: 15px 0; font-size: 1.1rem; }
         .multiplay-plans span { color: var(--gold); }
 
-        /* Grid */
+        
         .services-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px; margin-bottom: 50px;
@@ -128,7 +128,7 @@
             <button class="btn-neon" onclick="filterBox('extras', this)">Redes & Extras</button>
         </div>
 
-        <!-- Banner Multiplay CON ID CORRECTO -->
+      
         <div class="multiplay-banner" id="banner-tv">
             <img src="image_1.png" alt="Multiplay TV" class="multiplay-logo">
             <h2>EL SERVICIO DEFINITIVO DE ENTRETENIMIENTO 🟦</h2>
@@ -235,7 +235,7 @@
             const cards = document.querySelectorAll('.service-card');
             const banner = document.getElementById('banner-tv');
             
-            // Lógica para mostrar el banner solo en 'all' o 'streaming'
+            
             if (category === 'all' || category === 'streaming') {
                 banner.style.display = 'block';
             } else {
@@ -251,7 +251,7 @@
             });
         }
 
-        // Lluvia Blanca
+       
         const canvas = document.getElementById('weather-canvas');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
