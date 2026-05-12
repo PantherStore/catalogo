@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panther STORE</title>
+    <title>Panther STORE | Argentina Edition</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --neon-purple: #9d4edd;
-            --dark-purple: #240046;
-            --light-purple: #c77dff;
+            --arg-blue: #74ACDF;
+            --arg-dark-blue: #00355f;
+            --gold: #FFD700;
             --bg-color: #05000a;
             --text-main: #f8f9fa;
         }
@@ -28,7 +28,7 @@
             position: relative;
         }
 
-        /* Canvas para Lluvia y Truenos */
+        /* Canvas Temática Argentina (Fondo Celeste y Lluvia Blanca) */
         #weather-canvas {
             position: fixed;
             top: 0;
@@ -36,10 +36,10 @@
             width: 100%;
             height: 100%;
             z-index: -1;
+            background: radial-gradient(circle at center, var(--arg-dark-blue) 0%, #000 100%);
             pointer-events: none;
         }
 
-        /* Contenedor Principal */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -48,7 +48,6 @@
             z-index: 1;
         }
 
-        /* Header & Hero */
         header {
             text-align: center;
             padding: 40px 0 20px;
@@ -57,7 +56,7 @@
 
         .logo-header {
             max-width: 300px;
-            filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.6));
+            filter: drop-shadow(0 0 20px rgba(116, 172, 223, 0.6));
             margin-bottom: 20px;
             border-radius: 15px;
         }
@@ -66,7 +65,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 2.5rem;
             color: #fff;
-            text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+            text-shadow: 0 0 10px var(--arg-blue), 0 0 20px var(--arg-blue);
             margin-bottom: 10px;
         }
 
@@ -79,7 +78,7 @@
             margin-right: auto;
         }
 
-        /* Botones */
+        /* Botonera Principal Blanca/Dorada */
         .btn-neon {
             display: inline-block;
             padding: 15px 30px;
@@ -87,11 +86,11 @@
             font-weight: 700;
             font-size: 1.1rem;
             text-decoration: none;
-            color: #fff;
-            background: linear-gradient(45deg, var(--dark-purple), var(--neon-purple));
-            border: 2px solid var(--light-purple);
+            color: #000;
+            background: #fff;
+            border: 2px solid var(--arg-blue);
             border-radius: 5px;
-            box-shadow: 0 0 15px var(--neon-purple);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -100,25 +99,29 @@
         }
 
         .btn-neon:hover {
-            box-shadow: 0 0 30px var(--light-purple), inset 0 0 10px var(--light-purple);
+            background: var(--gold);
+            color: #000;
+            border-color: #fff;
+            box-shadow: 0 0 30px var(--gold), inset 0 0 10px #fff;
             transform: scale(1.05);
         }
 
-        /* Sección Destacada Multiplay TV */
+        /* Multiplay TV Section */
         .multiplay-banner {
-            background: linear-gradient(135deg, rgba(36, 0, 70, 0.7), rgba(5, 0, 10, 0.9));
-            border: 2px solid var(--neon-purple);
+            background: rgba(0, 53, 95, 0.4);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--arg-blue);
             border-radius: 15px;
             padding: 40px 20px;
             text-align: center;
             margin: 40px 0;
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.3);
+            box-shadow: 0 0 30px rgba(116, 172, 223, 0.3);
             animation: fadeIn 2s ease-in;
         }
 
         .multiplay-logo {
             max-width: 250px;
-            filter: drop-shadow(0 0 10px rgba(157, 78, 221, 0.4));
+            filter: drop-shadow(0 0 10px var(--arg-blue));
             margin-bottom: 20px;
         }
 
@@ -126,70 +129,36 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 2.2rem;
             color: #fff;
-            text-shadow: 0 0 10px var(--neon-purple);
+            text-shadow: 0 0 10px var(--arg-blue);
             margin-bottom: 10px;
         }
 
         .multiplay-banner .subtitle {
             font-size: 1.3rem;
-            color: #ffde59;
+            color: var(--gold);
             font-weight: bold;
             margin-bottom: 25px;
         }
 
-        .multiplay-features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-            text-align: left;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         .feature-box {
-            background: rgba(157, 78, 221, 0.1);
-            border: 1px solid rgba(157, 78, 221, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(116, 172, 223, 0.3);
             padding: 15px 20px;
             border-radius: 8px;
             flex: 1 1 300px;
         }
 
         .feature-box h4 {
-            color: var(--light-purple);
+            color: var(--arg-blue);
             font-size: 1.2rem;
             margin-bottom: 10px;
             font-family: 'Orbitron', sans-serif;
         }
 
-        .feature-box p {
-            font-size: 1.05rem;
-            color: #ddd;
-            line-height: 1.4;
-        }
-
-        .multiplay-plans {
-            font-size: 1.2rem;
-            color: #fff;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            display: inline-block;
-        }
-        
         .multiplay-plans span {
-            color: var(--light-purple);
+            color: var(--gold);
             font-weight: bold;
             margin: 0 10px;
-        }
-
-        .warning-text {
-            font-size: 0.9rem;
-            color: #ff4d4d;
-            margin-top: 15px;
         }
 
         /* Grid de Servicios */
@@ -198,118 +167,50 @@
             font-size: 2rem;
             text-align: center;
             margin: 50px 0 30px;
-            color: var(--light-purple);
-            border-bottom: 2px solid var(--dark-purple);
+            color: var(--arg-blue);
+            border-bottom: 2px solid var(--arg-dark-blue);
             padding-bottom: 10px;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
-        }
-
         .service-card {
-            background: rgba(36, 0, 70, 0.4);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(157, 78, 221, 0.3);
+            border: 1px solid rgba(116, 172, 223, 0.2);
             border-radius: 10px;
             padding: 25px;
             transition: all 0.3s ease;
         }
 
         .service-card:hover {
-            border-color: var(--light-purple);
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.5);
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
             transform: translateY(-5px);
         }
 
-        .service-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: #fff;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-            text-shadow: 0 0 5px var(--neon-purple);
-            text-align: center;
-        }
-
-        .service-list {
-            list-style: none;
-        }
-
-        .service-list li {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            line-height: 1.3;
-        }
-
-        .service-icon {
-            width: 25px;
-            height: 25px;
-            margin-right: 12px;
-            border-radius: 4px;
-            object-fit: contain;
-            filter: drop-shadow(0 0 3px rgba(157, 78, 221, 0.5));
-        }
-
-        /* Banner Promocional Diseño Web */
+        /* Promo Banner */
         .promo-banner {
-            background: linear-gradient(135deg, rgba(36,0,70,0.8), rgba(5,0,10,0.9));
-            border: 2px dashed var(--light-purple);
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px dashed var(--arg-blue);
             border-radius: 15px;
             padding: 40px 20px;
             text-align: center;
             margin: 50px 0;
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.2);
         }
 
-        .promo-banner h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
-            color: #fff;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px var(--neon-purple);
-        }
-
-        .promo-banner p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #ddd;
-        }
-
-        .highlight {
-            color: #ffde59;
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
+        .highlight { color: var(--gold); font-weight: bold; }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 30px;
-            border-top: 1px solid var(--dark-purple);
+            border-top: 1px solid var(--arg-dark-blue);
             margin-top: 50px;
-        }
-
-        .logo-footer {
-            max-width: 100px;
-            filter: drop-shadow(0 0 10px rgba(157, 78, 221, 0.5));
-            margin-bottom: 15px;
-            border-radius: 10px;
-        }
-
-        footer p {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
         }
 
         .whatsapp-number {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
-            color: var(--light-purple);
+            color: var(--gold);
             font-weight: bold;
             margin-bottom: 15px;
             display: block;
@@ -320,11 +221,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             h1 { font-size: 1.8rem; }
             .btn-neon { padding: 12px 20px; font-size: 1rem; }
-            .multiplay-banner h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -334,134 +233,61 @@
 
     <div class="container">
         <header>
-            <img src="image_0.jpg" alt="Digitalgamer_ok Logo" class="logo-header">
-            <h1>ACCESO DIGITAL PREMIUM</h1>
-            <p class="hero-text">Potencia tu entretenimiento y herramientas de trabajo al instante. Cuentas garantizadas, juegos, diseño y el mejor soporte.</p>
-            <a href="https://chat.whatsapp.com/HGb1VqoJJO022e60hJod2X" target="_blank" class="btn-neon"> Unite al Grupo VIP de WhatsApp</a>
+            <img src="image_0.jpg" alt="Logo" class="logo-header">
+            <h1>ACCESO DIGITAL PREMIUM 🇦🇷</h1>
+            <p class="hero-text">Entretenimiento de exportación con soporte nacional. Cuentas garantizadas al mejor precio del mercado.</p>
+            <a href="https://chat.whatsapp.com/EUL8RzPX9saDJ1cU2vvjJm" target="_blank" class="btn-neon">Unite al Grupo VIP</a>
         </header>
 
-        <div class="multiplay-banner">
-            <img src="image_1.png" alt="Multiplay TV Logo" class="multiplay-logo">
-            <h2>EL SERVICIO DEFINITIVO DE ENTRETENIMIENTO 🟦</h2>
-            <p class="subtitle">Disfruta en 3 PANTALLAS SIMULTÁNEAS en todos tus dispositivos</p>
+        <!-- Filtros Rápidos (Botonera Blanca/Dorada) -->
+        <div style="text-align: center; margin-bottom: 40px;">
+            <button class="btn-neon">Streaming</button>
+            <button class="btn-neon">Música</button>
+            <button class="btn-neon">IA & Trabajo</button>
+            <button class="btn-neon">Gaming</button>
+        </div>
 
-            <div class="multiplay-features">
+        <div class="multiplay-banner">
+            <img src="image_1.png" alt="Multiplay TV" class="multiplay-logo">
+            <h2>STREAMING CELESTE Y BLANCO 🟦</h2>
+            <p class="subtitle">Disfrutá en 3 PANTALLAS SIMULTÁNEAS</p>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 30px; text-align: left; max-width: 900px; margin: 0 auto;">
                 <div class="feature-box">
-                    <h4>⚽ Deportes y Fútbol VIP</h4>
-                    <p>Pack Fútbol completo (TNT/Fox/ESPN), Ligas exclusivas (MLS con Messi, Liga Árabe con CR7, Tigo).</p>
+                    <h4>⚽ Fútbol Argentino & VIP</h4>
+                    <p>Pack Fútbol completo, Selección Argentina y todas las ligas del mundo en HD.</p>
                 </div>
                 <div class="feature-box">
-                    <h4>🎬 Series y Cine 4K</h4>
-                    <p>Catálogo infinito: Netflix, Disney+, Max y más en calidad Ultra HD y FHD.</p>
-                </div>
-                <div class="feature-box">
-                    <h4>🌐 TV Mundial & Premium</h4>
-                    <p>Canales en vivo de todo el mundo + Bonus Exclusivo de contenido para Adultos (XXX).</p>
-                </div>
-                <div class="feature-box">
-                    <h4>💻 100% Compatible</h4>
-                    <p>Smart TV, TV Box, Fire Stick, Roku, Android, iPhone, PC y Chromecast. (Requiere mín. 20 Mbps).</p>
+                    <h4>🎬 Cine y Series</h4>
+                    <p>Netflix, Disney+, Max y miles de películas listas para maratonear.</p>
                 </div>
             </div>
 
             <div class="multiplay-plans">
-                🔥 PLANES DISPONIBLES: 
-                <span>MENSUAL</span> | <span>TRIMESTRAL</span> | <span>SEMESTRAL</span> | <span>ANUAL</span>
+                🔥 PLANES: <span>MENSUAL</span> | <span>TRIMESTRAL</span> | <span>SEMESTRAL</span> | <span>ANUAL</span>
             </div>
-            <br>
-
-            <a href="https://api.whatsapp.com/send?phone=5491128881378&text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20pedir%20mi%20prueba%20gratis%20de%20MultiplayTV.%20%F0%9F%93%BA" target="_blank" class="btn-neon">🎁 PEDIR MI PRUEBA GRATIS DE 3 HORAS</a>
-            
-            <p class="warning-text">⚠️ Importante: La prueba sin costo está sujeta a disponibilidad y no se otorga durante partidos de fútbol importantes.</p>
+            <br><br>
+            <a href="https://api.whatsapp.com/send?phone=5491128881378" target="_blank" class="btn-neon">🎁 PEDIR PRUEBA GRATIS</a>
         </div>
 
-        <h2 class="section-title">NUESTROS SERVICIOS EXCLUSIVOS</h2>
-
-        <div class="services-grid">
+        <h2 class="section-title">SERVICIOS DESTACADOS</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 50px;">
             <div class="service-card">
-                <h3>🎬 CINE & STREAMING</h3>
-                <ul class="service-list">
-                    <li><img src="netflix.png" class="service-icon">Netflix (Premium / Permanente)</li>
-                    <li><img src="disneyplus.png" class="service-icon">Disney+ (Premium / Standard)</li>
-                    <li><img src="primevideo.png" class="service-icon">Prime Video</li>
-                    <li><img src="max.png" class="service-icon">Max Standard</li>
-                    <li><img src="paramountplus.png" class="service-icon">Paramount Plus</li>
-                    <li><img src="crunchyroll.png" class="service-icon">Crunchyroll Fan</li>
-                    <li><img src="vixplus.png" class="service-icon">Vix Plus</li>
-                    <li><img src="appletv.png" class="service-icon">Apple TV+</li>
-                    <li><img src="xupertv.png" class="service-icon">Xupertv (Permanente)</li>
-                    <li><img src="pelis.png" class="service-icon">Películas DVD HD, 4K & Cine</li>
-                </ul>
+                <h3 style="color: var(--arg-blue); margin-bottom:15px; font-family:'Orbitron';">🎬 STREAMING</h3>
+                <p>Cuentas de Netflix, Disney+, Prime Video y más con garantía total.</p>
             </div>
-
             <div class="service-card">
-                <h3>🎧 MÚSICA SIN LÍMITES</h3>
-                <ul class="service-list">
-                    <li><img src="spotify.png" class="service-icon">Spotify (Ind / Permanente)</li>
-                    <li><img src="youtube.png" class="service-icon">YouTube (Ind / Dúo / Fam / Perm)</li>
-                    <li><img src="applemusic.png" class="service-icon">Apple Music (Ind / Familiar)</li>
-                    <li><img src="amazonmusic.png" class="service-icon">Amazon Music (Ind / Familiar)</li>
-                    <li><img src="deezer.png" class="service-icon">Deezer (Ind / Familiar)</li>
-                    <li><img src="tidal.png" class="service-icon">Tidal (Ind / Familiar)</li>
-                    <li><img src="qobuz.png" class="service-icon">QOBUZ</li>
-                </ul>
+                <h3 style="color: var(--arg-blue); margin-bottom:15px; font-family:'Orbitron';">💻 IA & DISEÑO</h3>
+                <p>ChatGPT Pro, Canva Pro y herramientas para potenciar tu laburo.</p>
             </div>
-
-            <div class="service-card">
-                <h3>💻 IA & PRODUCTIVIDAD</h3>
-                <ul class="service-list">
-                    <li><img src="chatgpt.png" class="service-icon">ChatGPT Go / ChatGPT Pro</li>
-                    <li><img src="gemini.png" class="service-icon">Gemini 2.5 Pro (Ind / Fam)</li>
-                    <li><img src="canva.png" class="service-icon">Canva Pro Edu (Ind / Fam)</li>
-                    <li><img src="microsoftoffice.png" class="service-icon">Microsoft Office 365 Educativo</li>
-                    <li><img src="capcut.png" class="service-icon">Capcut Pro</li>
-                    <li><img src="avirasecurity.png" class="service-icon">Avira Security Antivirus & VPN</li>
-                    <li><img src="aviraphantom.png" class="service-icon">Avira Phantom VPN</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <h3>🎮 GAMING & MONEDAS</h3>
-                <ul class="service-list">
-                    <li><img src="ps5.png" class="service-icon">Juegos PS3, PS4 & PS5</li>
-                    <li><img src="juegospc.png" class="service-icon">Juegos DVD para PC</li>
-                    <li><img src="juegosretro.png" class="service-icon">Juegos Retro Android</li>
-                    <li><img src="roblox.png" class="service-icon">Roblox (Robux)</li>
-                    <li><img src="freefire.png" class="service-icon">Diamantes Free Fire</li>
-                    <li><img src="pubgm.png" class="service-icon">PUBG Móvil</li>
-                    <li><img src="mobilelegends.png" class="service-icon">Mobile Legends</li>
-                    <li><img src="stumbleguys.png" class="service-icon">Stumble Guys</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <h3>🚀 REDES SOCIALES & EXTRAS</h3>
-                <ul class="service-list">
-                    <li><img src="tiktok.png" class="service-icon">Seguidores y Likes en TikTok</li>
-                    <li><img src="instagram.png" class="service-icon">Seguidores y Likes Instagram</li>
-                    <li><img src="casino.png" class="service-icon">Trucos Casino 💰🎲</li>
-                    <li><img src="catalogo.png" class="service-icon">Catálogo para Listas</li>
-                    <li><img src="cursos.png" class="service-icon">Cursos Digitales PDF</li>
-                    <li><img src="disenografico.png" class="service-icon">Diseñador Gráfico</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="web-design" class="promo-banner">
-            <h2>¡LLEVA TU NEGOCIO AL SIGUIENTE NIVEL! 🌐</h2>
-            <p>¿Necesitas una web profesional que venda por ti las 24 horas?</p>
-            <p><strong>Diseñamos tu página web a medida.</strong> Textos publicitarios atractivos, diseño moderno y optimización para que vendas rápido.</p>
-            <p class="highlight">🎁 ¡Pide tu prueba sin compromiso!<br>💳 Págalo hasta en 2 CUOTAS SIN INTERÉS.</p>
-            <br>
-            <a href="https://api.whatsapp.com/send?phone=5491128881378&text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20web%20y%20me%20interesa%20cotizar%20un%20dise%C3%B1o%20web.%20%F0%9F%8C%90" target="_blank" class="btn-neon">📲 Cotizar mi Página Web</a>
         </div>
 
         <footer>
-            <img src="image_0.jpg" alt="Digitalgamer_ok Footer Logo" class="logo-footer">
-            <p>Atención rápida y personalizada al WhatsApp</p>
+            <img src="image_0.jpg" alt="Footer Logo" class="logo-footer" style="max-width: 100px; border-radius: 10px;">
+            <p>Atención rápida desde Argentina para el mundo</p>
             <span class="whatsapp-number">Contacto: 1128881378</span>
-            <a href="https://chat.whatsapp.com/HGb1VqoJJO022e60hJod2X" target="_blank" class="btn-neon">💬 Ir al Grupo VIP de WhatsApp</a>
-            <p style="margin-top: 30px; font-size: 0.9rem; color: #666;">Trabajamos desde &copy; 2020 Panther STORE. Todos los derechos reservados.</p>
+            <p style="margin-top: 30px; font-size: 0.9rem; color: #666;">&copy; 2026 Panther STORE. Orgullo Nacional.</p>
         </footer>
     </div>
 
@@ -486,19 +312,22 @@
                 y: Math.random() * height,
                 length: Math.random() * 20 + 10,
                 speed: Math.random() * 10 + 5,
-                opacity: Math.random() * 0.5 + 0.1
+                opacity: Math.random() * 0.7 + 0.3
             });
         }
 
         function drawRain() {
-            ctx.fillStyle = 'rgba(5, 0, 10, 0.4)';
+            // Fondo con rastro para el efecto de movimiento
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
             ctx.fillRect(0, 0, width, height);
-            ctx.lineWidth = 1;
+            
+            ctx.lineWidth = 1.5;
             ctx.lineCap = 'round';
 
             for (let i = 0; i < maxDrops; i++) {
                 let p = drops[i];
-                ctx.strokeStyle = `rgba(157, 78, 221, ${p.opacity})`;
+                // Lluvia Blanca
+                ctx.strokeStyle = `rgba(255, 255, 255, ${p.opacity})`;
                 ctx.beginPath();
                 ctx.moveTo(p.x, p.y);
                 ctx.lineTo(p.x, p.y + p.length);
@@ -516,22 +345,16 @@
         let isLightning = false;
 
         function triggerLightning() {
-            if (Math.random() < 0.015) { 
+            if (Math.random() < 0.01) { 
                 isLightning = true;
-                setTimeout(() => { isLightning = false; }, 50); 
-                
-                if (Math.random() < 0.3) {
-                    setTimeout(() => {
-                        isLightning = true;
-                        setTimeout(() => { isLightning = false; }, 50);
-                    }, 100);
-                }
+                setTimeout(() => { isLightning = false; }, 60); 
             }
         }
 
         function drawLightning() {
             if (isLightning) {
-                ctx.fillStyle = 'rgba(200, 160, 255, 0.2)'; 
+                // Trueno Blanco-Amarillento (Sol)
+                ctx.fillStyle = 'rgba(255, 255, 200, 0.15)'; 
                 ctx.fillRect(0, 0, width, height);
             }
         }
